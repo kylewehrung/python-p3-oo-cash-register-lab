@@ -1,15 +1,26 @@
 #!/usr/bin/env python3
+import ipdb
 
 class CashRegister:
 
-  total = 0
+ 
+
   def __init__(self, discount=0):
     self.discount = discount
+    self.items = []
+    self.total = 0
+    
+
+    
 
 
-  def add_item(self, title, price, quantity=1):
+  def add_item(self, item, price, quantity=1):
     self.total += price * quantity
-    self.title = title
+    for i in range(quantity):
+      self.items.append(item)
+      i += 1
+  
+
 
   def apply_discount(self):
     percentage = self.discount/100
@@ -21,4 +32,8 @@ class CashRegister:
       print("There is no discount to apply.")
     
 
+# ipdb_set_trace()
 
+# walmart = CashRegister()
+# walmart.add_item("tomato", 9)
+# walmart.items

@@ -9,6 +9,7 @@ class CashRegister:
     self.discount = discount
     self.items = []
     self.total = 0
+    self.last_transaction = 0
     
 
     
@@ -19,6 +20,7 @@ class CashRegister:
     for i in range(quantity):
       self.items.append(item)
       i += 1
+    self.last_transaction = price * quantity
   
 
 
@@ -30,6 +32,9 @@ class CashRegister:
       print(f"After the discount, the total comes to ${int(self.total)}.")
     else:
       print("There is no discount to apply.")
+
+  def void_last_transaction(self):
+    self.total -= self.last_transaction
     
 
 # ipdb_set_trace()
